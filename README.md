@@ -1,3 +1,12 @@
+## TB mobile schedule
+
+Task in hand was to to create a workflow with react for participant in study
+
+## Running the projekt
+
+Make sure you have Node >= 8.10 and npm >= 5.6 on your machine to run commands below.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
