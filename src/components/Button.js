@@ -12,7 +12,7 @@ import styled from "styled-components";
     */
 
 const StyledButton = styled.button`
-    min-width: 50px;
+    min-width: 120px;
     border: 1px solid #ccc;
     margin: 0px;
     padding: 0.25em 1em;
@@ -96,6 +96,7 @@ const Button = (props) => {
             key={id}
             title={title}
             disabled={disabled}
+            style={props.style}
             type="button"
             className={getClass() + (props.fullwidth ? " is-fullwidth" : "")}
             onClick={onClickedButton}>

@@ -18,8 +18,9 @@ class PatientService {
   }
 
   async updatePatient(patient) {
-    console.log("PatientService.updatePatient():");
-    console.log(patient);
+    console.log("PatientService.updatePatient(): ", patient);
+    const oldPatient = await this.getPatient(patient.hash);
+    return { ...oldPatient, ...patient };
   }
 }
 export default PatientService;

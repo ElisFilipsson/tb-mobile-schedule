@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import WelcomePage from "./pages/WelcomePage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import logo from "./assets/logo.svg";
-import { Hero, Container, Section } from "./layouts";
+import { Hero, Container } from "./layouts";
 import { routes } from "./shared/variabels";
 import {
   BrowserRouter as Router,
@@ -19,7 +19,6 @@ const App = () => {
   const onConfirmed = (phoneNbr, hours) => {
     setPhoneNbr(phoneNbr);
     setHours(hours);
-    console.log("number " + phoneNbr, hours);
   };
 
   return (
