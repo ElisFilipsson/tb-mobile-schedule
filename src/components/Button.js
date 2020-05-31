@@ -7,40 +7,77 @@ import styled from "styled-components";
     * text: string
     * title: string (optional)
     * disabled: boolean
+    * fullwidth: boolean;
     * onClick: () => {}
     */
 
 const StyledButton = styled.button`
-    min-width: 200px;
+    min-width: 50px;
     border: 1px solid #ccc;
     margin: 0px;
     padding: 0.25em 1em;
-    border-radius: 3px;
+    border-radius: 2px;
     display: block;
-    font-size: 90%;
+
+    :focus {
+        outline: none;
+    }
 
     &.is-text {
         background-color: transparent;
         border: none;
         color: #00a8ee;
         padding: 0;
+        min-width: auto;
+        display: initial;
+
+        :hover:enabled, :active:enabled {
+            color: #28576e;
+        }
+
+        :disabled, [disabled]{
+            color: #666666;
+        }
     }
-    
+
     &.is-light {
-        background-color: none;
+        background-color: #fff;
+
+        :disabled, [disabled]{
+            background-color: #cccccc;
+            color: #666666;
+        }
     }
+
     &.is-primary {
-        background-color: none;
+        background-color: #00a8ee;
+        border: none;
+        color: #fff;
+        padding: 0.25em 1em;
+
+        :hover:enabled, :active:enabled {
+            background-color: #28576e;
+        }
+        :disabled, [disabled]{
+            background-color: #cccccc;
+            color: #666666;
+        }
+    }
+
+    &.is-fullwidth {
+        width: 100%;
+        padding: 0.6em 1em;
     }
  `;
 
-function Button(props) {
-
+const Button = (props) => {
     const { id, text, title, disabled } = props;
 
     const onClickedButton = (event) => {
-        console.log(event);
-        props.onClick();
+        event.stopPropagation();
+        if (props.onClick) {
+            props.onClick();
+        }
     };
 
     const getClass = () => {
@@ -60,7 +97,7 @@ function Button(props) {
             title={title}
             disabled={disabled}
             type="button"
-            className={getClass()}
+            className={getClass() + (props.fullwidth ? " is-fullwidth" : "")}
             onClick={onClickedButton}>
             {text}
         </StyledButton>

@@ -1,16 +1,37 @@
-import React, { useState } from "react";
-import logo from "../assets/logo.svg";
+import React, { useState, useEffect } from "react";
 import "./app.css";
 import { Button, Checkbox, Headline, Scheduler } from "../components";
-import { Hero, Container, Section } from "../layout";
+import { Section } from "../layouts";
+import usePatient from "../hooks/usePatient";
+import { useParams, useHistory } from "react-router-dom";
+import { routes } from "../shared/variabels";
 
-function WelcomePage() {
+function WelcomePage(props) {
+    const history = useHistory();
 
-    const [confirmedGdpr, setConfirmedGdpr] = useState(true);
+    const { hash } = useParams();
+    const { isLoading, getPatient, loadPatient } = usePatient();
+
+    useEffect(() => {
+        loadPatient(hash);
+    }, [hash]);
+
+    const [confirmedGdpr, setConfirmedGdpr] = useState(false);
     const [selection, setSelection] = useState([]);
+
+    const user = getPatient();
 
     const onClickIncorrectContacts = () => {
         console.log("Click for correction of contacts");
+    };
+
+    const onClickShowTerms = () => {
+        console.log("Open modal and show terms.")
+    };
+
+    const onClickConfirm = () => {
+        props.onConfirm(user?.cellphone, selection);
+        history.push(routes.confirmed);
     };
 
     const renderHeader = () => {
@@ -18,8 +39,8 @@ function WelcomePage() {
             <Section direction="column">
                 <Headline
                     size="xl"
-                    title="Hej Bert-Åke"
-                    text="Hej Bert-Åke" />
+                    title={"Hej " + user?.firstName}
+                    text={"Hej " + user?.firstName} />
             </Section>);
     };
 
@@ -35,12 +56,11 @@ function WelcomePage() {
                     <Headline
                         style={{ marginLeft: ".4rem" }}
                         size="sm"
-                        title="0700 00 00 00"
-                        text="0700 00 00 00" />
+                        title={user?.cellphone}
+                        text={user?.cellphone} />
                 </Section>
 
                 <Button
-                    style={{ marginTop: "-.2rem" }}
                     onClick={onClickIncorrectContacts}
                     type="text"
                     text="Mina uppgifter stämmer inte"
@@ -70,24 +90,30 @@ function WelcomePage() {
 
     const renderGDPRConsent = () => {
         return (
-            <Checkbox id="gdpr" checked={confirmedGdpr} onCheckedChange={setConfirmedGdpr}>
-                <p>Genom att klicka in rutan godkänner du att vi sparar din data enligt GDPR och att du läst och förstått <a href="#">villkoren</a>.</p>
+            <Checkbox id="gdpr" checked={confirmedGdpr} onCheckedChange={setConfirmedGdpr} style={{ marginTop: "1rem" }}>
+                <p>Genom att klicka in rutan godkänner du att vi sparar din data enligt GDPR och att du läst och förstått <Button
+                    onClick={onClickShowTerms}
+                    type="text"
+                    text="villkoren"
+                    title="villkoren" />.</p>
             </Checkbox>
         );
     };
 
     return (
         <>
-            <Hero>
-                <img src={logo} className="app-logo" alt="logo" />
-            </Hero>
-            <Container>
-                {renderHeader()}
-                {renderContactNumber()}
-                {renderInformationalText()}
-                <Scheduler selection={selection} onSelectionChanged={setSelection} />
-                {renderGDPRConsent()}
-            </Container>
+            {renderHeader()}
+            {renderContactNumber()}
+            {renderInformationalText()}
+            <Scheduler selection={selection} onSelectionChanged={setSelection} />
+            {renderGDPRConsent()}
+            <Button
+                onClick={onClickConfirm}
+                type="primary"
+                disabled={!confirmedGdpr}
+                fullwidth={true}
+                text="Bekräfta uppgifterna"
+                title="Bekräfta uppgifterna" />
         </>
     );
 }

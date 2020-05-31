@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
     margin: 1rem;
+    height: 100%;
 
     @media screen and (min-width: 800px) {
         margin: 1rem 5rem;

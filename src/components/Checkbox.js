@@ -31,26 +31,26 @@ const StyledLabel = styled.label`
     input:checked ~ .checkmark:after {
       display: block;
     }
-    
+
     .checkmark {
         position: absolute;
-        top: 0;
+        top: 0.5rem;
         left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
+        height: 1.25rem;
+        width: 1.25rem;
+        background-color: #ccc;
     }
 
     .checkmark:after {
         content: "";
         position: absolute;
         display: none;
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
+        left: 0.3rem;
+        top: 0rem;
+        width: 0.6rem;
+        height: 0.9rem;
         border: solid white;
-        border-width: 0 3px 3px 0;
+        border-width: 0 0.2rem 0.2rem 0;
         -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
@@ -64,21 +64,20 @@ const StyledLabel = styled.label`
     * onCheckedChange: (isChecked) => {}
     */
 
-function Checkbox(props) {
+const Checkbox = (props) => {
 
-    const { id, checked } = props;
+  const { id, checked } = props;
 
-    const onChange = (event) => {
-        props.onCheckedChange(event);
-        console.log(event);
-    };
+  const onChange = (event) => {
+    props.onCheckedChange(event.target.checked);
+  };
 
-    return (
-        <StyledLabel htmlFor={id}>{props.children}
-            <input type="checkbox" name={id} id={id} defaultChecked={checked ? 'checked' : null} onChange={onChange} />
-            <span className="checkmark"/>
-        </StyledLabel>
-    );
+  return (
+    <StyledLabel htmlFor={id}>{props.children}
+      <input type="checkbox" name={id} id={id} defaultChecked={checked ? 'checked' : null} onChange={onChange} />
+      <span className="checkmark" />
+    </StyledLabel>
+  );
 }
 
 export default Checkbox;
