@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import "./app.css";
 import { Button, Checkbox, Headline, Scheduler, Modal, Dialog, TextField } from "../components";
 import { Section } from "../layouts";
@@ -117,8 +117,7 @@ function WelcomePage(props) {
                 isOpen={isContactsVisible}
                 onClose={hideContacts}
                 onAction={updateContacts}
-                title="Uppdatera dina uppgifter"
-                closeBtn={true} >
+                title="Uppdatera dina uppgifter">
                 <p>Update your firstname and cellphone number.</p>
                 <TextField
                     id="firstName"

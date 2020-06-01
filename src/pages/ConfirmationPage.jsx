@@ -1,6 +1,16 @@
 import React from "react";
 import { Headline } from "../components";
 import { Section } from "../layouts";
+import styled from "styled-components";
+
+const StyledText = styled.p`
+    margin-top: 1rem;
+`;
+
+const StyledIndentation = styled.p`
+    margin-top: 1rem;
+    margin-left: 1rem;
+`;
 
 function Confirmation(props) {
 
@@ -13,10 +23,10 @@ function Confirmation(props) {
                     title="Tack"
                     text="Tack" />
                 <p>...för att du vill vara med i studien. Vi kommer att kontakta dig så snart studien startar.</p>
-                <p style={{marginTop: "1rem"}}>Telefonnummer vi kommer att kontakta dig på</p>
-                <p style={{marginTop: "1rem", marginLeft: "1rem"}}>{number}</p>
-                <p style={{marginTop: "1rem"}}>Tider då vi kontaktar dig</p>
-                <p style={{marginTop: "1rem", marginLeft: "1rem"}}>{hours}</p>
+                <StyledText>Telefonnummer vi kommer att kontakta dig på</StyledText>
+                <StyledIndentation>{number}</StyledIndentation>
+                <StyledText>Tider då vi kontaktar dig</StyledText>
+                <StyledIndentation>{hours}</StyledIndentation>
             </Section>
         </>
     );

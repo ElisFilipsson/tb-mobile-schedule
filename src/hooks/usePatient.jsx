@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PatientService from "../shared/mockPatientService";
 import { useHistory } from "react-router-dom";
 import { routes } from "../shared/variabels";

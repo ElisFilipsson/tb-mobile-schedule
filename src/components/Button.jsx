@@ -94,6 +94,8 @@ const Button = (props) => {
                 return "is-text";
             case "light":
                 return "is-light";
+            default:
+                return "";
         }
     };
 

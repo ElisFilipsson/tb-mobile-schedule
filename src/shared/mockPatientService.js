@@ -1,5 +1,3 @@
-import React from 'react';
-
 class PatientService {
   constructor() {
     this.patients = [
