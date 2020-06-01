@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./app.css";
-import { Button, Checkbox, Headline, Scheduler, Modal, Dialog, TextField } from "../components";
+import { Button, Checkbox, Headline, Scheduler, Modal, Dialog, TextField, Loader } from "../components";
 import { Section } from "../layouts";
 import usePatient from "../hooks/usePatient";
 import { useParams, useHistory } from "react-router-dom";
@@ -33,7 +33,7 @@ function WelcomePage(props) {
     };
 
     const onSelectionChanged = (weekdays, interval) => {
-        setSelection({weekdays, ...interval});
+        setSelection({ weekdays, ...interval });
     };
 
     const renderHeader = () => {
@@ -169,6 +169,7 @@ function WelcomePage(props) {
 
     return (
         <>
+            <Loader isLoading={isLoading || isUpdating} />
             {renderHeader()}
             {renderContactNumber()}
             {renderInformationalText()}
