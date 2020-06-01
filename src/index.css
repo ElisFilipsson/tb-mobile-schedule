@@ -98,3 +98,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+.modal-open {
+  overflow: hidden;
+}

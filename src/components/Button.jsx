@@ -7,12 +7,13 @@ import styled from "styled-components";
     * text: string
     * title: string (optional)
     * disabled: boolean
+    * smaller: boolean 
     * fullwidth: boolean;
     * onClick: () => {}
     */
 
 const StyledButton = styled.button`
-    min-width: 50px;
+    min-width: 120px;
     border: 1px solid #ccc;
     margin: 0px;
     padding: 0.25em 1em;
@@ -68,15 +69,20 @@ const StyledButton = styled.button`
         width: 100%;
         padding: 0.6em 1em;
     }
+
+    &.is-smaller {
+        min-width: 40px;
+        padding: 0.4rem 0.4rem;
+    }
  `;
 
 const Button = (props) => {
-    const { id, text, title, disabled } = props;
+    const { id, text, title, disabled, data } = props;
 
     const onClickedButton = (event) => {
         event.stopPropagation();
         if (props.onClick) {
-            props.onClick();
+            props.onClick(data);
         }
     };
 
@@ -88,6 +94,8 @@ const Button = (props) => {
                 return "is-text";
             case "light":
                 return "is-light";
+            default:
+                return "";
         }
     };
 
@@ -96,8 +104,9 @@ const Button = (props) => {
             key={id}
             title={title}
             disabled={disabled}
+            style={props.style}
             type="button"
-            className={getClass() + (props.fullwidth ? " is-fullwidth" : "")}
+            className={getClass() + (props.fullwidth ? " is-fullwidth" : "") + (props.smaller ? " is-smaller" : "")}
             onClick={onClickedButton}>
             {text}
         </StyledButton>
