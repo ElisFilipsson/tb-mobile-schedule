@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 /* Props
@@ -36,6 +36,12 @@ const StyledModal = styled.div`
 `;
 
 function Modal(props) {
+    useEffect(() => {
+        props.isOpen ?
+            document.body.classList.add("modal-open") :
+            document.body.classList.remove("modal-open");
+    }, [props.isOpen]);
+
     return (
         <StyledBackdrop isOpen={props.isOpen} onClick={props.onClose}>
             <StyledModal onClick={(e) => e.stopPropagation()}>

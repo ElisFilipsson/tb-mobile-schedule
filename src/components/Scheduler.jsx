@@ -2,31 +2,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Section } from "../layouts";
 import { Button, Headline, Modal, TimePicker } from ".";
+import { defaultWeekdays, defaultHours, defaultMinutes } from "../shared/variabels";
 
 const StyledScheduler = styled.div`
     margin-bottom: 1rem;
 `;
 /* 
-    * title: string (optional)
-    * days: []
-    * startTime: string
-    * endTime: string
+    * onSelectionChanged: (weekdays, interval) => void
     */
 
 function Scheduler(props) {
-
-    const defaultWeekdays = [
-        { position: 1, name: "Måndag", shortName: "Mån" },
-        { position: 2, name: "Tisdag", shortName: "Tis" },
-        { position: 3, name: "Onsdag", shortName: "Ons" },
-        { position: 4, name: "Torsdag", shortName: "Tors" },
-        { position: 5, name: "Fredag", shortName: "Fre" },
-        { position: 6, name: "Lördag", shortName: "Lör" },
-        { position: 7, name: "Söndag", shortName: "Sön" }
-    ];
-    const defaultHours = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"];
-    const defaultMinutes = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"];
-
 
     const [isScheduleVisible, setIsScheduleVisible] = useState(false);
     const [showStartTime, setShowStartTime] = useState(true);
@@ -34,13 +19,24 @@ function Scheduler(props) {
     const [weekdays, setWeekdays] = useState([]);
 
     const [startTime, setStartTime] = useState({
-        hours: "22",
+        hours: "23",
         minutes: "00",
     });
 
     const [endTime, setEndTime] = useState({
         hours: "07",
         minutes: "00"
+    });
+
+    const [doNotDisturb, setDoNotDisturb] = useState({
+        startTime: {
+            hours: "23",
+            minutes: "00"
+        },
+        endTime: {
+            hours: "07",
+            minutes: "00"
+        }
     });
 
     const isDaySelected = (day) => {
@@ -52,9 +48,11 @@ function Scheduler(props) {
         if (isDaySelected(day)) {
             oldWeekdays = oldWeekdays.filter(oldDay => oldDay.position !== day.position);
             setWeekdays(oldWeekdays);
+            props.onSelectionChanged(weekdays, doNotDisturb);
         } else {
             oldWeekdays.push(day);
             setWeekdays(oldWeekdays);
+            props.onSelectionChanged(weekdays, doNotDisturb);
         }
     };
 
@@ -67,23 +65,43 @@ function Scheduler(props) {
     };
 
     const onChangeStartTime = (name, value) => {
-        console.log(name, value);
-
         const start = { ...startTime };
         start[name] = value;
         setStartTime(start);
     };
 
     const onChangeEndTime = (name, value) => {
-        console.log(name, value);
-
         const end = { ...endTime };
         end[name] = value;
         setEndTime(end);
     };
 
+    const isNextDay = (startTime, endTime) => {
+        const startHours = parseInt(startTime.hours);
+        const startMin = parseInt(startTime.minutes);
+        const endHours = parseInt(endTime.hours);
+        const endMin = parseInt(endTime.minutes);
+        if (startHours < endHours) {
+            return "";
+        }
+        if (startHours > endHours) {
+            return "nästa dag";
+        }
+        if (startHours === endHours) {
+            if (startMin > endMin) {
+                return "nästa dag";
+            }
+        }
+        return "";
+    };
+
     const confirmSchedule = () => {
-        console.log(`${startTime.hours}: ${startTime.minutes} - ${endTime.hours}:${endTime.minutes} nästa dag`);
+        const interval = { ...doNotDisturb };
+        interval.startTime = { ...startTime };
+        interval.endTime = { ...endTime };
+        setDoNotDisturb(interval)
+        props.onSelectionChanged(weekdays, doNotDisturb);
+        setIsScheduleVisible(false);
     };
 
     const renderSchedule = () => {
@@ -100,7 +118,7 @@ function Scheduler(props) {
                             weight="bold"
                             onClick={() => setShowStartTime(true)} />
                         <Button
-                            style={{ fontWeight: "bold", color: showStartTime ? "#ccc" : "#00a8ee"}}
+                            style={{ fontWeight: "bold", color: showStartTime ? "#ccc" : "#00a8ee" }}
                             type="text"
                             title="SLUT"
                             text="SLUT"
@@ -178,7 +196,7 @@ function Scheduler(props) {
                         text="Ställ in schema" />
                     <Button
                         type="text"
-                        text={`${startTime.hours}: ${startTime.minutes} - ${endTime.hours}:${endTime.minutes} nästa dag`}
+                        text={`${doNotDisturb.startTime.hours}: ${doNotDisturb.startTime.minutes} - ${doNotDisturb.endTime.hours}:${doNotDisturb.endTime.minutes} ${isNextDay(doNotDisturb.startTime, doNotDisturb.endTime)}`}
                         onClick={showSchedule} />
                 </Section>
             </Section>

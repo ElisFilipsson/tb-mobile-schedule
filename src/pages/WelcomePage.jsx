@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./app.css";
 import { Button, Checkbox, Headline, Scheduler, Modal, Dialog, TextField } from "../components";
 import { Section } from "../layouts";
@@ -17,7 +17,7 @@ function WelcomePage(props) {
     }, [hash]);
 
     const [confirmedGdpr, setConfirmedGdpr] = useState(false);
-    const [selection, setSelection] = useState([]);
+    const [selection, setSelection] = useState(null);
 
     const [isContactsVisible, setIsContactsVisible] = useState(false);
     const [isTermsVisible, setIsTermsVisible] = useState(false);
@@ -30,6 +30,10 @@ function WelcomePage(props) {
     const onClickConfirm = () => {
         props.onConfirm(user?.cellphone, selection);
         history.push(routes.confirmed);
+    };
+
+    const onSelectionChanged = (weekdays, interval) => {
+        setSelection({weekdays, ...interval});
     };
 
     const renderHeader = () => {
@@ -168,7 +172,7 @@ function WelcomePage(props) {
             {renderHeader()}
             {renderContactNumber()}
             {renderInformationalText()}
-            <Scheduler selection={selection} onSelectionChanged={setSelection} />
+            <Scheduler onSelectionChanged={onSelectionChanged} />
             {renderGDPRConsent()}
             <Button
                 onClick={onClickConfirm}

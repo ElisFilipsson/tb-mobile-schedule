@@ -14,11 +14,11 @@ import {
 
 const App = () => {
   const [phoneNbr, setPhoneNbr] = useState(null);
-  const [hours, setHours] = useState(null);
+  const [doNotDisturb, setDoNotDisturb] = useState(null);
 
-  const onConfirmed = (phoneNbr, hours) => {
+  const onConfirmed = (phoneNbr, dnd) => {
     setPhoneNbr(phoneNbr);
-    setHours(hours);
+    setDoNotDisturb(dnd);
   };
 
   return (
@@ -30,7 +30,7 @@ const App = () => {
         <Router>
           <Switch>
             <Route exact path={routes.confirmed}>
-              <ConfirmationPage number={phoneNbr} hours={hours}/>
+              <ConfirmationPage number={phoneNbr} doNotDisturb={doNotDisturb}/>
             </Route>
             <Route exact path={routes.catchAll}>
               <NotFoundPage />
