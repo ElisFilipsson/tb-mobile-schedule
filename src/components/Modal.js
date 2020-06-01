@@ -18,16 +18,18 @@ const StyledBackdrop = styled.div`
 `;
 
 const StyledModal = styled.div`
-        position:fixed;
+        position: fixed;
         background: white;
-        width: 80%;
+        min-width: 300px;
+        width: auto;
+        max-width: 80%;
         border-radius: 2px;
         min-height: 250px;
         height: auto;
         max-height: 90%;
         overflow-x: auto;
-        top:50%;
-        left:50%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%,-50%);
         display: flex;
 `;
