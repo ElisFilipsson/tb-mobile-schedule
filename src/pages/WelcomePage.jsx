@@ -8,8 +8,9 @@ import { routes } from "../shared/variabels";
 import translation from "../locales/translation.json";
 import { withNamespaces } from 'react-i18next';
 
+function WelcomePage(props) {
 
-function WelcomePage({ t }, props) {
+    const { t } = props;
     const history = useHistory();
 
     const { hash } = useParams();

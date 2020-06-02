@@ -5,13 +5,13 @@ export const routes = {
 };
 
 export const defaultWeekdays = [
-    { position: 1, name: "Måndag", shortName: "Mån" },
-    { position: 2, name: "Tisdag", shortName: "Tis" },
-    { position: 3, name: "Onsdag", shortName: "Ons" },
-    { position: 4, name: "Torsdag", shortName: "Tors" },
-    { position: 5, name: "Fredag", shortName: "Fre" },
-    { position: 6, name: "Lördag", shortName: "Lör" },
-    { position: 7, name: "Söndag", shortName: "Sön" }
+    { position: 1, name: "monday", shortName: "monday_short" },
+    { position: 2, name: "tuesday", shortName: "tuesday_short" },
+    { position: 3, name: "wednesday", shortName: "wednesday_short" },
+    { position: 4, name: "thursday", shortName: "thursday_short" },
+    { position: 5, name: "friday", shortName: "friday_short" },
+    { position: 6, name: "saturday", shortName: "saturday_short" },
+    { position: 7, name: "sunday", shortName: "sunday_short" }
 ];
 
 export const defaultHours = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"];

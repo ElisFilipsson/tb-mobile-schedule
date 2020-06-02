@@ -1,24 +1,26 @@
 import React from "react";
 import { Headline } from "../components";
 import { Section } from "../layouts";
+import translation from "../locales/translation.json";
+import { withNamespaces } from 'react-i18next';
 
-function NotFoundPage() {
+function NotFoundPage({ t }) {
     return (
         <>
             <Section direction="column" style={{ marginTop: "1rem" }}>
                 <Headline
                     size="xl"
-                    title="404"
-                    text="404" />
+                    title={t(translation.notfoundpage.notfounderror)}
+                    text={t(translation.notfoundpage.notfounderror)} />
                 <Headline
                     style={{ marginTop: "1rem" }}
                     size="xl"
-                    title="Ops! We couldn't find the page you where looking for..."
-                    text="Ops! We couldn't find the page you where looking for..." />
-                <p> An error occured trying to get your data. Have you entered the correct web address?</p>
+                    title={t(translation.notfoundpage.information)} 
+                    text={t(translation.notfoundpage.information)} />
+                <p>{t(translation.notfoundpage.suggestion)}</p>
             </Section>
         </>
     );
 }
 
-export default NotFoundPage;
+export default withNamespaces()(NotFoundPage);
