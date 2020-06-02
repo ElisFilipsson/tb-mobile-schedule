@@ -6,6 +6,19 @@ Task in hand was to to create a workflow with react for participant in study
 
 Make sure you have Node >= 8.10 and npm >= 5.6 on your machine to run commands below.
 
+Donload or clone project
+
+navigate to tb-mobile-schedule folder
+
+run: npm install
+ 
+then run: yarn start
+
+page shouuld open in a new window in your browser
+
+http://localhost:3000/404
+
+navigate to /key01 och key02 to test application with dummydata from a mock-service
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
