@@ -1,0 +1,52 @@
+{
+    "confirmationpage": {
+        "thank_you": "confirmationpage.thank_you",
+        "in_the_study": "confirmationpage.in_the_study",
+        "phone_contact": "confirmationpage.phone_contact",
+        "time_contact": "confirmationpage.time_contact"
+    },
+    "notfoundpage": {
+        "notfounderror": "notfoundpage.notfounderror",
+        "information": "notfoundpage.information",
+        "suggestion": "notfoundpage.suggestion"
+    },
+    "welcomepage": {
+        "cellphone_number": "welcomepage.cellphone_number",
+        "confirm_contacts": "welcomepage.confirm_contacts",
+        "firstname": "welcomepage.firstname",
+        "gdpr": "welcomepage.gdpr",
+        "gdpr_the_terms": "welcomepage.gdpr_the_terms",
+        "hello": "welcomepage.hello",
+        "incorrect_contacts": "welcomepage.incorrect_contacts",
+        "info_explanation": "welcomepage.info_explanation",
+        "lorem_ipsum": "welcomepage.lorem_ipsum",
+        "terms_of_service": "welcomepage.terms_of_service",
+        "update_name_number": "welcomepage.update_name_number",
+        "welcome_study": "welcomepage.welcome_study"
+    },
+    "shared": {
+        "monday": "shared.monday",
+        "tuesday":"shared.tuesday",
+        "wednesday":"shared.wednesday",
+        "thursday":"shared.thursday",
+        "friday":"shared.friday",
+        "saturday":"shared.saturday",
+        "sunday": "shared.sunday",
+
+        "monday_short": "shared.monday_short",
+        "tuesday_short":"shared.tuesday_short",
+        "wednesday_short":"shared.wednesday_short",
+        "thursday_short":"shared.thursday_short",
+        "friday_short":"shared.friday_short",
+        "saturday_short":"shared.saturday_short",
+        "sunday_short": "shared.sunday_short",
+
+        "allTimes": "shared.allTimes",
+        "next_day":"shared.next_day",
+        "start": "shared.start",
+        "end": "shared.end",
+        "cancel": "shared.cancel",
+        "finished": "shared.finished",
+        "set_schedule": "shared.set_schedule"
+    }
+}

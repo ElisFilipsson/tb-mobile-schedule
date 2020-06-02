@@ -1,0 +1,52 @@
+{
+  "confirmationpage": {
+    "thank_you": "Thank you",
+    "in_the_study": "...because you want to be part of the study. We will contact you as soon as the study starts.",
+    "phone_contact": "Phone number we will contact you on",
+    "time_contact": "Times when we will contact you"
+  },
+  "notfoundpage": {
+    "notfounderror": "404",
+    "information": "Ops! We couldn't find the page you where looking for...",
+    "suggestion": "An error occured trying to get your data. Have you entered the correct web address?"
+  },
+  "welcomepage": {
+    "cellphone_number": "Cellphone number",
+    "confirm_contacts": "Confirm contacts",
+    "firstname": "Firstname",
+    "gdpr": "By clicking the box you agree that we will save your data according to GDPR and that you have read and understood ",
+    "gdpr_the_terms": "the terms",
+    "hello": "Hello {{name}}",
+    "incorrect_contacts": "My contacts are not correct",
+    "info_explanation": "In order for us to give you the best experience possible, we want you to fill in when you do not want to be disturbed, confirm the information we have about you and approve the agreement.",
+    "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a dui sed elit egestas dictum sed non tellus. Nulla finibus odio a lectus luctus mattis a et dui. Nam mi risus, imperdiet non dui ut, volutpat condimentum turpis. Proin pretium vestibulum ultrices. Nullam tincidunt elementum vulputate. In id massa ut nulla laoreet finibus. Curabitur nec augue eu libero aliquam sollicitudin. Morbi sed augue vitae nisl posuere pulvinar. Cras semper varius lorem, id vulputate metus gravida vitae. Donec sem velit, ullamcorper ut ultricies lobortis, efficitur accumsan dolor. Proin cursus, diam at fringilla efficitur, urna tellus euismod lectus, in eleifend orci massa in risus. Integer pulvinar viverra nunc in cursus. Phasellus sed egestas risus. Cras hendrerit, nisi ut porta pellentesque, sapien justo consectetur libero, vel mattis velit quam at nibh. Sed faucibus tincidunt sapien, at vulputate mauris iaculis eu. Sed est tellus, venenatis vestibulum fermentum vel, molestie vel quam. Duis laoreet, est non consequat tempus, enim odio sollicitudin lacus, quis vestibulum neque neque ut dui. Morbi mauris purus, pulvinar vitae scelerisque eu, maximus id sem. Nunc rutrum congue leo accumsan pharetra. Quisque sed sagittis quam. Phasellus vitae condimentum ligula, eget placerat metus. Aenean interdum urna nec eros fermentum, sit amet viverra mauris placerat. Nullam lacinia tempus quam, ut volutpat mauris pellentesque id. Mauris vel ipsum eu arcu laoreet tempus. Quisque luctus mollis viverra. Aliquam sit amet ex facilisis, pharetra ligula id, malesuada odio. Vestibulum sodales neque ut imperdiet iaculis. Nam ullamcorper volutpat ex, condimentum viverra magna gravida a. Maecenas tempor cursus consequat. Phasellus ut malesuada sapien. Curabitur mauris purus, pharetra in sem in, convallis porttitor turpis. Morbi eu lectus auctor, rutrum justo quis, pretium ante. Donec dictum condimentum sodales. Duis pretium aliquam nunc, quis tincidunt lorem vulputate nec. Mauris pellentesque id lorem ac auctor. Donec eu eleifend augue. Morbi consectetur leo id erat dictum tincidunt. Nunc lacinia felis urna, ut finibus mauris rhoncus et. Duis facilisis tortor sed est tincidunt ornare. Morbi ut pellentesque felis. Sed ac placerat lacus, efficitur posuere purus. Nulla hendrerit mi dui, sed mollis lacus malesuada quis. Quisque malesuada, sapien ut ultrices fringilla.",
+    "terms_of_service": "Terms of service",
+    "update_name_number": "Update your firstname and cellphone number.",
+    "welcome_study": "Welcome to the study"
+  },
+  "shared": {
+    "monday": "Monday",
+    "tuesday":"Tuesday",
+    "wednesday":"Wednesday",
+    "thursday":"Thursday",
+    "friday":"Friday",
+    "saturday":"Saturday",
+    "sunday": "Sunday",
+
+    "monday_short": "Mon",
+    "tuesday_short":"Tues",
+    "wednesday_short":"Wed",
+    "thursday_short":"Thur",
+    "friday_short":"Fri",
+    "saturday_short":"Sat",
+    "sunday_short": "Sun",
+
+    "allTimes": "all times",
+    "next_day":"next day",
+    "start": "START",
+    "end": "END",
+    "cancel": "Cancel",
+    "finished": "Finished",
+    "set_schedule": "Set schedule"
+  }
+}

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Section } from "../layouts";
 import { Button, Headline, Modal, TimePicker } from ".";
 import { defaultWeekdays, defaultHours, defaultMinutes } from "../shared/variabels";
+import translation from "../locales/translation.json";
+import { withNamespaces } from 'react-i18next';
 
 const StyledScheduler = styled.div`
     margin-bottom: 1rem;
@@ -12,6 +14,7 @@ const StyledScheduler = styled.div`
     */
 
 function Scheduler(props) {
+    const { t } = props;
 
     const [isScheduleVisible, setIsScheduleVisible] = useState(false);
     const [showStartTime, setShowStartTime] = useState(true);
@@ -48,11 +51,11 @@ function Scheduler(props) {
         if (isDaySelected(day)) {
             oldWeekdays = oldWeekdays.filter(oldDay => oldDay.position !== day.position);
             setWeekdays(oldWeekdays);
-            props.onSelectionChanged(weekdays, doNotDisturb);
+            props.onSelectionChanged(oldWeekdays, doNotDisturb);
         } else {
             oldWeekdays.push(day);
             setWeekdays(oldWeekdays);
-            props.onSelectionChanged(weekdays, doNotDisturb);
+            props.onSelectionChanged(oldWeekdays, doNotDisturb);
         }
     };
 
@@ -85,11 +88,11 @@ function Scheduler(props) {
             return "";
         }
         if (startHours > endHours) {
-            return "nästa dag";
+            return t(translation.shared.next_day);
         }
         if (startHours === endHours) {
             if (startMin > endMin) {
-                return "nästa dag";
+                return t(translation.shared.next_day);
             }
         }
         return "";
@@ -113,15 +116,15 @@ function Scheduler(props) {
                         <Button
                             type="text"
                             style={{ fontWeight: "bold", color: showStartTime ? "#00a8ee" : "#ccc" }}
-                            title="STARTA"
-                            text="STARTA"
+                            title={t(translation.shared.start)}
+                            text={t(translation.shared.start)}
                             weight="bold"
                             onClick={() => setShowStartTime(true)} />
                         <Button
                             style={{ fontWeight: "bold", color: showStartTime ? "#ccc" : "#00a8ee" }}
                             type="text"
-                            title="SLUT"
-                            text="SLUT"
+                            title={t(translation.shared.end)}
+                            text={t(translation.shared.end)}
                             onClick={() => setShowStartTime(false)} />
                     </Section>
                     <Section direction="row" justify="center" style={{ width: "100%" }}>
@@ -150,14 +153,14 @@ function Scheduler(props) {
                         <Button
                             type="text"
                             style={{ fontWeight: "bold" }}
-                            title="Avbryt"
-                            text="Avbryt"
+                            title={t(translation.shared.cancel)}
+                            text={t(translation.shared.cancel)}
                             onClick={hideSchedule} />
                         <Button
                             type="text"
                             style={{ fontWeight: "bold" }}
-                            title="Klart"
-                            text="Klart"
+                            title={t(translation.shared.finished)}
+                            text={t(translation.shared.finished)}
                             onClick={confirmSchedule} />
                     </Section>
                 </Section>
@@ -174,13 +177,13 @@ function Scheduler(props) {
                     title="Välj de tider då du inte vill blir störd"
                     text="Välj de tider då du inte vill blir störd" />
                 <Section direction="row" justify="space-between" align="center" style={{ width: "100%" }}>
-                    {defaultWeekdays.map((day, index) => (
-                        <Button
+                    {defaultWeekdays.map((day, index) =>
+                        (<Button
                             key={index}
                             smaller={true}
                             type={isDaySelected(day) ? "primary" : "light"}
-                            text={day.shortName}
-                            title={day.shortName}
+                            text={t(translation.shared[day.shortName])}
+                            title={t(translation.shared[day.shortName])}
                             data={day}
                             onClick={onSelectedDayDidChange}
                         />)
@@ -192,8 +195,8 @@ function Scheduler(props) {
                         style={{ marginTop: "1rem" }}
                         size="sm"
                         weight="bold"
-                        title="Ställ in schema"
-                        text="Ställ in schema" />
+                        title={t(translation.shared.set_schedule)}
+                        text={t(translation.shared.set_schedule)} />
                     <Button
                         type="text"
                         text={`${doNotDisturb.startTime.hours}: ${doNotDisturb.startTime.minutes} - ${doNotDisturb.endTime.hours}:${doNotDisturb.endTime.minutes} ${isNextDay(doNotDisturb.startTime, doNotDisturb.endTime)}`}
@@ -205,4 +208,4 @@ function Scheduler(props) {
     );
 }
 
-export default Scheduler;
+export default withNamespaces()(Scheduler);

@@ -1,8 +1,8 @@
 class PatientService {
   constructor() {
     this.patients = [
-      { hash: "key01", id: 1, firstName: "Bengt-Åke", cellphone: "0700 00 00 00", language: "sv" },
-      { hash: "key02", id: 2, firstName: "Annabell", cellphone: "0700 00 00 01", language: "en" },
+      { hash: "key01", id: 1, firstName: "Bengt-Åke", cellphone: "0700 00 00 00", language: "sv_se" },
+      { hash: "key02", id: 2, firstName: "Annabell", cellphone: "0700 00 00 01", language: "en_us" },
     ];
   }
 
