@@ -11,8 +11,10 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import "./i18n";
+import { withNamespaces } from 'react-i18next';
 
-const App = () => {
+const App = ({ t }) => {
   const [phoneNbr, setPhoneNbr] = useState(null);
   const [doNotDisturb, setDoNotDisturb] = useState(null);
 
@@ -30,7 +32,7 @@ const App = () => {
         <Router>
           <Switch>
             <Route exact path={routes.confirmed}>
-              <ConfirmationPage number={phoneNbr} doNotDisturb={doNotDisturb}/>
+              <ConfirmationPage number={phoneNbr} doNotDisturb={doNotDisturb} />
             </Route>
             <Route exact path={routes.catchAll}>
               <NotFoundPage />
@@ -46,4 +48,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default withNamespaces()(App);

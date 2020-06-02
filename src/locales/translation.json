@@ -1,0 +1,16 @@
+{
+    "welcomepage": {
+        "hello": "welcomepage.hello",
+        "cellphone_number": "welcomepage.cellphone_number",
+        "incorrect_contacts": "welcomepage.incorrect_contacts",
+        "welcome_study": "welcomepage.welcome_study",
+        "info_explanation": "welcomepage.info_explanation",
+        "gdpr": "welcomepage.gdpr",
+        "gdpr_the_terms": "welcomepage.gdpr_the_terms",
+        "update_name_number": "welcomepage.update_name_number",
+        "firstname": "welcomepage.firstname",
+        "terms_of_service": "welcomepage.terms_of_service",
+        "lorem_ipsum": "welcomepage.lorem_ipsum",
+        "confirm_contacts": "welcomepage.confirm_contacts"
+    }
+}
