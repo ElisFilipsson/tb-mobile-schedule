@@ -1,6 +1,8 @@
-## TB mobile schedule
+## TB mobile schedule 
 
 Task in hand was to to create a workflow with react for participant in study
+
+This application is optimized for mobile-view
 
 ## Running the projekt
 
