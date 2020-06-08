@@ -6,6 +6,17 @@ This application is optimized for mobile-view
 
 ![Invite patient - nurse scenario 01](https://github.com/ElisFilipsson/tb-mobile-schedule/blob/master/src/assets/invite-patient_01.jpg?raw=true)
 
+![Invite patient - nurse scenario 01](https://github.com/ElisFilipsson/tb-mobile-schedule/blob/master/src/assets/invite-patient_02.jpg?raw=true)
+
+
+![Invite patient - nurse scenario 01](https://github.com/ElisFilipsson/tb-mobile-schedule/blob/master/src/assets/invite-patient_03.jpg?raw=true)
+
+![Welcome patient 01](https://github.com/ElisFilipsson/tb-mobile-schedule/blob/master/src/assets/welcome_patient_01.jpg?raw=true)
+
+![Welcome patient 02](https://github.com/ElisFilipsson/tb-mobile-schedule/blob/master/src/assets/welcome_patient_01_set-schedule.jpg?raw=true)
+
+![Welcome patient 03](https://github.com/ElisFilipsson/tb-mobile-schedule/blob/master/src/assets/welcome_patient_02.jpg?raw=true)
+
 
 ## Running the projekt
 
