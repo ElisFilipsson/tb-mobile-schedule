@@ -4,6 +4,9 @@ Task in hand was to to create a workflow with react for participant in study
 
 This application is optimized for mobile-view
 
+![Invite patient - nurse scenario 01](https://github.com/ElisFilipsson/tb-mobile-schedule/blob/master/src/assets/invite-patient_01.jpg?raw=true)
+
+
 ## Running the projekt
 
 Make sure you have Node >= 8.10 and npm >= 5.6 on your machine to run commands below.
